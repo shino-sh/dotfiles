@@ -66,6 +66,7 @@ NeoBundleCheck
 " End Neobundle Settings.
 "-------------------------
 
+syntax on
 set number
 set enc=utf-8
 set fenc=utf-8
