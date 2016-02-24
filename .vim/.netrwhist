@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Applications/MAMP/htdocs/l5blog/app/Http/Controllers'
-let g:netrw_dirhist_2='/Users/shinop/KyotoCorpus4.0/dat'
