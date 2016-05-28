@@ -24,7 +24,7 @@ noremap <C-P> :Unite buffer<CR>
 " ファイル一覧
 noremap <C-N> :Unite -buffer-name=file file<CR>
 " 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru<CR>
+noremap <C-R> :Unite file_mru<CR>
 " sourcesを「今開いているファイルのディレクトリ」とする
 noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 " ウィンドウを分割して開く
@@ -53,6 +53,13 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'tpope/vim-endwise'
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
+" haskell syntax
+NeoBundle 'dag/vim2hs'
+" disable folding
+set nofoldenable
+NeoBundle 'Lokaltog/vim-powerline'
+" set guifont=Monaco\ for\ Powerline
+let g:Powerline_symbols='fancy'
 
 call neobundle#end()
  
@@ -67,6 +74,7 @@ NeoBundleCheck
 "-------------------------
 
 syntax on
+colorscheme molokai
 set number
 set enc=utf-8
 set fenc=utf-8
@@ -87,13 +95,25 @@ set whichwrap=b,s,h,l,<,>,[,]
 
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示させる
 set laststatus=2
-" ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
-set statusline=%<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y%=%c,\ %1l/%L%8P
-" ステータス行に現在のgitブランチを表示する
-set statusline+=\ %{fugitive#statusline()}
+" " ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
+" set statusline=%<\ %f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y%=%c,\ %1l/%L%8P
+" " ステータス行に現在のgitブランチを表示する
+" set statusline+=\ %{fugitive#statusline()}
 
 " 予測変換<C-p> or <C-n>の色の設定
 hi Pmenu ctermbg=8
 hi PmenuSel ctermbg=4
 " hi PmenuSbar ctermbg=2
 " hi PmenuThumb ctermfg=3
+
+set hlsearch
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+"新しいタブを開く
+nnoremap <Leader>t :tabnew<CR>
+"開いているタブを閉じる
+nnoremap <Leader>w :tabclose<CR>
+
+"左右の矢印キーでバッファを移動
+nnoremap <M-LEFT> :bp<CR>
+nnoremap <M-RIGHT> :bn<CR>
