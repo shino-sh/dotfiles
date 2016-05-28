@@ -57,9 +57,6 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'dag/vim2hs'
 " disable folding
 set nofoldenable
-NeoBundle 'Lokaltog/vim-powerline'
-" set guifont=Monaco\ for\ Powerline
-let g:Powerline_symbols='fancy'
 
 call neobundle#end()
  
@@ -117,3 +114,10 @@ nnoremap <Leader>w :tabclose<CR>
 "左右の矢印キーでバッファを移動
 nnoremap <M-LEFT> :bp<CR>
 nnoremap <M-RIGHT> :bn<CR>
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)   "
